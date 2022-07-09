@@ -1,6 +1,7 @@
 beautifulsoup4==4.11.1
 discord.py==1.7.3
 geopy==2.2.0
+GitPython==3.1.27
 gmaps==0.9.0
 ipywidgets==7.7.1
 pandas==1.4.2

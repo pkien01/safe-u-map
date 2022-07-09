@@ -9,6 +9,8 @@ from transformers import pipeline
 import os
 import gmaps
 from ipywidgets.embed import embed_minimal_html
+from git import Repo
+from safe_u import API_KEY_WEB
 #import dill as pickle
 
 def scrape_page(page_url, as_of_date):
@@ -64,7 +66,18 @@ def load_old_df(save_name='saved_data.pkl'):
     
     return df
 
-def save_df(df, save_name='saved_data.pkl', export_html='index.html'):
+WEB_REPO_PATH = "pkien01.github.io"
+def git_push():
+    try:
+        repo = Repo(WEB_REPO_PATH)
+        repo.git.add(update=True)
+        repo.index.commit(f"Update Safe-U Alerts Map (map.html) on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        origin = repo.remote(name='origin')
+        origin.push()
+    except:
+        print('Some error occured while pushing the code')   
+
+def save_df(df, save_name='saved_data.pkl', export_html='map.html'):
     save_dir = os.path.join(os.path.dirname(__file__), save_name)
     df.to_pickle(save_dir)
     print(f"Saved data to {save_name}.")
@@ -74,8 +87,11 @@ def save_df(df, save_name='saved_data.pkl', export_html='index.html'):
     fig = gmaps.figure()
     heatmap_layer = gmaps.heatmap_layer(coords, point_radius=15, opacity=0.75)
     fig.add_layer(heatmap_layer)
-    embed_minimal_html(os.path.join(os.path.dirname(__file__), export_html), views=[fig])
-    print(f"Export gmaps data to {export_html}.")
+    export_html_dir = os.path.join(WEB_REPO_PATH, export_html)
+    embed_minimal_html(export_html_dir, views=[fig], title='Safe U Alerts Geographical Heat Map')
+    print(f"Exported gmaps data to {export_html_dir}.")
+    git_push()
+    print("Successfully pushed to github.")
 
 def extract_locations_bert(sentence, ner, geolocator):
     entities = ner(sentence)

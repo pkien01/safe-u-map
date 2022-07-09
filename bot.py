@@ -3,9 +3,8 @@ from discord.ext import tasks
 import queue
 from geopy.geocoders import GoogleV3
 from .scraper import load_old_df, scan_new_data, save_df
-from safe_u import GMAP_API_KEY, USER_ID
+from safe_u import API_KEY_LOCAL, USER_ID
 import pandas as pd
-import pprint
 
 
 class DiscordBot(discord.Client):
@@ -13,7 +12,7 @@ class DiscordBot(discord.Client):
         print(f'Logged on as {self.user}!')
         self.receiver = self.get_user(int(USER_ID))
         print("Communicating with", self.receiver)
-        self.geolocator = GoogleV3(api_key=GMAP_API_KEY)
+        self.geolocator = GoogleV3(api_key=API_KEY_LOCAL)
         self.df = load_old_df()
         print(self.df.dtypes)
         #print(self.df.head())
@@ -61,7 +60,7 @@ class DiscordBot(discord.Client):
             else: df_new.iloc[front.name] = front
 
         self.df = pd.concat([df_new, self.df])
-        print(self.df.head())
+        #print(self.df.head())
         save_df(self.df)
         
     def push(self, item):
