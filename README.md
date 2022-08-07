@@ -25,5 +25,10 @@ USER_ID=<YOUR DISCORD USER ID>
 ![](/sample_images/discord_question.png)
 * There are two ways to reply to this
     * If you think the extracted address(es) are correct, simply reply with ```!yes```
-    * Otherwise, reply in the format of ```!no <ADDRESS 1>; <ADDRESS 2>; ....; <ADDRESS n>```. For example, ![](/sample_images/discord_answer_no.png). Note that the addresses can be typed in any order.
+    * Otherwise, reply in the format of ```!no <ADDRESS 1>; <ADDRESS 2>; ....; <ADDRESS n>```. </br>
+    <img src="./sample_images/discord_answer_no.png" width="40%"/>
+    
+    Note that the addresses can be typed in any order.
+
+
 
