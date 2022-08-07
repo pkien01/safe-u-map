@@ -28,7 +28,7 @@ USER_ID=<YOUR DISCORD USER ID>
 * There are two ways to reply to this
     * If you think the extracted address(es) are correct, simply reply with ```!yes```
     * Otherwise, reply in the format of ```!no <ADDRESS 1>; <ADDRESS 2>; ....; <ADDRESS n>``` (note that the addresses can be typed in any order) </br>
-    &ensp;<img src="./sample_images/discord_answer_no.png" width="100" height="36"/>
+    &ensp;<img src="./sample_images/discord_answer_no.png" width="180" height="64"/>
     * Also you can just assume every address is an address in Minneapolis, MN. If not, you can type the city name too (e.g. ``` 2017 Buford Ave, St Paul```)
 * Navigate over the [heatmap](https://pkien01.github.io/map.html) and hopefully, it will be updated accordingly.
 
