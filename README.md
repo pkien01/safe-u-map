@@ -31,6 +31,11 @@ USER_ID=<YOUR DISCORD USER ID>
     &ensp;<img src="./sample_images/discord_answer_no.png" width="180" height="64"/>
     * Also you can just assume every address is an address in Minneapolis, MN. If not, you can type the city name too (e.g. ``` 2017 Buford Ave, St Paul```)
 * Navigate over the [heatmap](https://pkien01.github.io/map.html) and hopefully, it will be updated accordingly.
+![](./sample_images/map.png)
+
+
+### Contacts
+Since I cannot upload the API Keys freely to github, to request them, please shoot me an email at phamkienxmas2001@gmail.com. Thanks!
 
 
 
